@@ -1,13 +1,17 @@
-//TODO: (martin) check our prototype how RESTFUL/domain is working there https://github.com/martinmicunda/chitter-prototype/tree/master/server/
-module.exports = function(app, io) {
-    //Cheeps Routes
-    var cheeps = require('../controllers/cheeps');
-    app.get('/', cheeps.index);
-    app.get('/cheeps', cheeps.getCheeps);
-    app.get('/cheeps/:id', cheeps.getCheep);
-    app.post('/cheeps', cheeps.postCheep(io));
+// RESTful API Handlers
+var handlers = {
+    cheeps: require('../controllers/cheeps'),
+    decks: require('../controllers/decks')
+};
 
-    //Decks Routes
-    var decks = require('../controllers/decks');
-    app.get('/decks/design', decks.design);
+module.exports = function(app, io) {
+
+    // CHEEPS RESTful
+    app.get('/', handlers.cheeps.index);
+    app.get('/cheeps', handlers.cheeps.getCheeps);
+    app.get('/cheeps/:id', handlers.cheeps.getCheep);
+    app.post('/cheeps', handlers.cheeps.postCheep(io));
+
+    // DECKS RESTful
+    app.get('/decks/design', handlers.decks.design);
 };

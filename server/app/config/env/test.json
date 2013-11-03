@@ -1,11 +1,13 @@
 {
-    "db": "mongodb://localhost/chitter-test",
     "app": {
-        "name": "Chitter - Test"
+        "name": "Chitter",
+        "version": "0.0.1"
     },
-    "fakeDatabase": {
-        "username": "username",
-        "password": "password",
-        "url": "http://localhost:3000/auth/test"
+    "db": {
+        "uri": "mongodb://localhost/chitter-test",
+        "options": {
+            "user": "",
+            "pass": ""
+        }
     }
 }

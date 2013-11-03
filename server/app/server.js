@@ -13,17 +13,15 @@ var express = require('express'),
  * Main application entry file.
  * Note that the order of loading is important.
 */
-//TODO: (martin) continue once we get mongoose working
-//,mongoose = require('mongoose');
-//Bootstrap db connection
-//var db = mongoose.connect(config.db);
-var db;
+
+//database settings
+require('./config/db')();
 
 //express settings
-require('./config/express')(app, db);
+require('./config/express')(app);
 
 //Bootstrap routes
-require('./config/routes')(app);
+require('./config/routes')(app, io);
 
 var port = process.env.PORT || config.port;
 
@@ -35,13 +33,13 @@ app.configure('development', function(){
         var open = require('open');
         open('http://localhost:' + port + '/');
     });
-    console.info('Chitter app started on port: ' + port);
+    console.info(config.app.name + ' app started on port: ' + port + ' - environment: ' + env);
 });
 
 // production environments
 app.configure('production', function(){
     app.listen(port, function() {
-        console.info('Chitter app started on port: ' + port);
+        console.info(config.app.name + ' app started on port: ' + port  + ' - with environment: ' + env);
     });
 });
 

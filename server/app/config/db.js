@@ -1,20 +1,58 @@
-//TODO (martin) this file should be removed and add mongoose settings to express.js
-var mongojs = require('mongojs');
+//TODO (martin) Colin could we remove this code as it not using any more?
+//var mongojs = require('mongojs');
+//
+////	Development connection string
+//var connection = 'test';
+//
+////  Cloud 9 connection string
+//if(process.env.IP) {
+//	connection = process.env.IP + '/test';
+//}
+//
+////  AppFog connection string
+//if(process.env.VCAP_SERVICES) {
+//  var env = JSON.parse(process.env.VCAP_SERVICES);
+//  var cfg = env['mongodb-1.8'][0].credentials;
+//
+//  connection = "mongodb://" + cfg.username + ":" + cfg.password + "@" + cfg.hostname + ":" + cfg.port +"/" + cfg.db;
+//}
+//
+//module.exports = mongojs(connection, ['cheeps']);
 
-//	Development connection string
-var connection = 'test';
+/**
+ * Module dependencies.
+ */
+var mongoose = require('mongoose'),
+    config = require('./config.js');
 
-//  Cloud 9 connection string
-if(process.env.IP) {
-	connection = process.env.IP + '/test';
-}
+module.exports = function() {
 
-//  AppFog connection string
-if(process.env.VCAP_SERVICES) {
-  var env = JSON.parse(process.env.VCAP_SERVICES);
-  var cfg = env['mongodb-1.8'][0].credentials;
-  
-  connection = "mongodb://" + cfg.username + ":" + cfg.password + "@" + cfg.hostname + ":" + cfg.port +"/" + cfg.db;
-}
+    // connect to mongoDB
+    mongoose.connect(config.db.uri, config.db.options);
 
-module.exports = mongojs(connection, ['cheeps']);
+    /**
+     * CONNECTION EVENTS
+     */
+    // When successfully connected
+    mongoose.connection.on('open', function () {
+        console.info('Mongoose default connection open to ' + config.db.uri);
+    });
+
+    // If the connection throws an error
+    mongoose.connection.on('error',function (err) {
+        console.error('Mongoose default connection error: ' + err);
+    });
+
+    // When the connection is disconnected
+    mongoose.connection.on('disconnected', function () {
+        console.info('Mongoose default connection disconnected');
+    });
+
+    // If the Node process ends, close the Mongoose connection
+    process.on('SIGINT', function() {
+        mongoose.connection.close(function () {
+            console.info('Mongoose default connection disconnected through app termination');
+            process.exit(0);
+        });
+    });
+};

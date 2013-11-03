@@ -4,7 +4,7 @@
 var express = require('express'),
     config = require('./config.js');
 
-module.exports = function(app, db) {
+module.exports = function(app) {
     app.set('showStackError', true);
 
     //Prettify HTML
@@ -25,19 +25,12 @@ module.exports = function(app, db) {
 
     // all environments
     app.configure(function(){
-        app.use(express.logger('dev'));
+        app.use(express.logger());
         app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
         //bodyParser should be above methodOverride
         app.use(express.bodyParser());
         app.use(express.methodOverride());
-
-        //TODO: (martin) mongoose database connection should be somewhere here.
-        // Database connection
-//        var MONGOLAB_URI = 'mongodb://' + config.mongo.dbUser + ':' + config.mongo.dbPassword + '@ds029798.mongolab.com:29798/' + config.mongo.dbName;
-//        mongoose.connect(MONGOLAB_URI);
-//        mongoose.connection.on('open', function() {console.info('Connected to Chitter MongoDB successfully!')});
-//        mongoose.connection.on('error', function(err) {console.error('ERROR connecting to: ' + '"' + MONGOLAB_URI + '" ' + err)});
 
         //routes should be at the last
         app.use(app.router);

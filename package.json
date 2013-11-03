@@ -23,7 +23,7 @@
         "express": "3.3.4",
         "jade": "*",
         "stylus": "*",
-        "mongojs": "*",
+        "mongoose": "3.8.0",
         "socket.io": "*",
         "underscore": "1.5.2"
     },
