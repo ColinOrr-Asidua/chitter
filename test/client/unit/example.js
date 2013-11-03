@@ -12,8 +12,8 @@ describe('filter', function() {
           expect(true).toBe(true);
       }));
 
-      it('should be false....', inject(function() {
-          expect(false).toBe(false);
-      }));
+//      it('should be false....', inject(function() {
+//          expect(false).toBe(false);
+//      }));
   });
 });
