@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/martinmicunda/chitter.png)](http://travis-ci.org/martinmicunda/chitter) [![Dependency Status](https://david-dm.org/martinmicunda/chitter.png)](https://david-dm.org/martinmicunda/chitter) [![devDependency Status](https://david-dm.org/martinmicunda/chitter/dev-status.png)](https://david-dm.org/martinmicunda/chitter#info=devDependencies)
+
 chitter
 =======
 
@@ -27,7 +29,7 @@ npm install
 
 # Start the database & application
 mongod      # if on Cloud9, run ./mongod instead
-node app.js
+node ./server/app/server.js
 ```
     
 All being well, you should be able to visit the application on [localhost:3000](http://localhost:3000)

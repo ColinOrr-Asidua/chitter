@@ -2,8 +2,9 @@ doctype 5
 html
   head
     title chitter : Design Infodeck
+    //TODO: (martin) add head.jade here... The bower can install libraries only to one file see 'bower-install' task in the gruntfile.js
     link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/decks.css')
+    link(rel='stylesheet', href='client/assets/stylesheets/decks.css')
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/dark.min.css')
   body.impress-not-supported
     div#impress
@@ -11,7 +12,7 @@ html
       section#chitter.step.slide(data-x='0', data-y='0', data-z='-200', data-rotate='-90', data-scale='1')
         h1
           | chitter
-          img(src='../images/decks/teeth.png')
+          img(src='client/assets/img/decks/teeth.png')
         
       section#architecture.step.slide.container(data-x='800', data-y='0')
         div.row
@@ -88,11 +89,11 @@ html
             div.tile.tile-blue
               h2 Views
           div.col-xs-2.col-sm-offset-3 
-            img.tile(src='../images/decks/login.jpg')
+            img.tile(src='client/assets/img/decks/login.jpg')
           div.col-xs-2 
-            img.tile(src='../images/decks/cheeps.jpg')
+            img.tile(src='client/assets/img/decks/cheeps.jpg')
           div.col-xs-2 
-            img.tile(src='../images/decks/cheep.jpg')
+            img.tile(src='client/assets/img/decks/cheep.jpg')
        
       section#tech.step.slide(data-x='-800', data-y='0')
         
