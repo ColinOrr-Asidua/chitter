@@ -1,3 +1,4 @@
+//TODO (martin) this file should be removed and add mongoose settings to express.js
 var mongojs = require('mongojs');
 
 //	Development connection string

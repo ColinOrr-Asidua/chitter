@@ -1,0 +1,9 @@
+{
+    "name": "Chitter",
+    "private": true,
+    "version": "0.0.1",
+    "dependencies": {
+        "angular": "1.2.0-rc.3",
+        "bootstrap": "3.0.1"
+    }
+}

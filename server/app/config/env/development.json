@@ -1,0 +1,11 @@
+{
+    "db": "mongodb://localhost/chitter-dev",
+    "app": {
+        "name": "Chitter - Development"
+    },
+    "fakeDatabase": {
+        "username": "username",
+        "password": "password",
+        "url": "http://localhost:3000/auth/test"
+    }
+}

@@ -1,5 +1,8 @@
 .c9revisions/
 node_modules/
-public/stylesheets/*.css
+client/lib/
+client/assets/stylesheets/*.css
 data/
 .DS_Store
+.idea/
+chitter.iml
