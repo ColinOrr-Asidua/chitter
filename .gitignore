@@ -6,3 +6,4 @@ data/
 .DS_Store
 .idea/
 chitter.iml
+dist

@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/martinmicunda/chitter.png)](http://travis-ci.org/martinmicunda/chitter) [![Dependency Status](https://david-dm.org/martinmicunda/chitter.png)](https://david-dm.org/martinmicunda/chitter) [![devDependency Status](https://david-dm.org/martinmicunda/chitter/dev-status.png)](https://david-dm.org/martinmicunda/chitter#info=devDependencies)
+
 chitter
 =======
 

@@ -1,0 +1,1 @@
+TODO: (martin) add bower.json file into test directory so we separate libraries that neccessery to run application from libraries that are only need for testing
